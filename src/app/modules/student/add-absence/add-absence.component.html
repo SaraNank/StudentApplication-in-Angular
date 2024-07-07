@@ -1,0 +1,28 @@
+<!-- 
+<form  #form="ngForm">
+    Absence Days:
+    <label for="date">Absence start date:
+        <input type="date" class="form-control" id="date" name="date" 
+        [(ngModel)]="absence?.date" required/>
+    </label> 
+    <br/>
+    <label for="days">Num days of absence:
+        <input type="number" class="form-control" id="days" name="date"
+         [(ngModel)]="absence?.sumOfAbsenceDays" required />
+    </label> 
+    {{absence}} 
+    <br/>
+    <button class="btn btn-primary" (click)="addAbsence()"[disabled]="!form.valid">save</button>
+    </form> -->
+    <form #form="ngForm">
+        Absence Days:
+        <label for="date">Absence start date:
+          <input type="date" class="form-control" id="date" name="date" [(ngModel)]="absence.date" required />
+        </label> 
+        <br/>
+        <label for="days">Num days of absence:
+          <input type="number" class="form-control" id="days" name="days" [(ngModel)]="absence.sumOfAbsenceDays" required />
+        </label> 
+        <br/>
+        <button class="btn btn-primary" (click)="addAbsence()" [disabled]="!form.valid">Save</button>
+      </form>

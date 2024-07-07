@@ -1,0 +1,16 @@
+<input type="checkbox" #chb (change)="showStudentActive(chb.checked)"/>show student active
+<ul class="list-group">
+    <li *ngFor="let student of students" class="list-group-item" [ngClass]="{'list-group-item-danger':student.departureDate,'list-group-item-sucess': student.avgMarks &&student.avgMarks>=90}">
+        <div class="row" >
+            <div class="col-2">{{student.firstName}} {{student.secondName}}</div>
+            <div class="col-2">{{student.sumOfAbsence}}</div>
+            <div class="col-3"><button (click)="deleteStudentToServer(student.id)">Delete Student</button></div>
+            <div class="col-4"><button (click)="showDetails(student.id)">Show Details</button></div>
+            <div class="col-4"><button (click)="addAbsence(student)">Add Absence</button></div>
+        </div>
+    </li>
+</ul>
+
+<button class="btn btn-primary" (click)="addStudent()">Add Student</button>
+<button class="btn btn-primary" (click)="sendMail()">send mail</button>
+<app-add-absence *ngIf="studentToAddAbsence" [student]="studentToAddAbsence" (onAddAbsence)="AddAbsenceToStudent($event)"></app-add-absence>
